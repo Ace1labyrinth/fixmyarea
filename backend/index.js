@@ -41,6 +41,10 @@ app.get("/", (req, res) => {
   res.send("FixMyArea backend is live, check it out");
 });
 
+app.get('/test', (req, res) => {
+  res.send('Backend is working!');
+});
+
 app.use('/api/issues', IssueRoutes);
 
 const PORT = process.env.PORT || 5000;

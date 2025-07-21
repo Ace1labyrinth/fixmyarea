@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const API_URL = "https://fixmyarea-backend.onrender.com/api/issues";
+const API_URL = "https://fixmyarea-backend.onrender.com";
 
 
 
 //add new issue
 
 export const createIssue = async (issueData) => {
-    const res = await axios.post(API_URL, issueData);
+    const res = await axios.post(`{API_URL}/api/issues`, issueData);
   return res.data;
 
 };
