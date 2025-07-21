@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://fixmyarea-backend.onrender.com";
+const API_URL = "https://fixmyarea-backend.onrender.com/issues";
 
 
 
