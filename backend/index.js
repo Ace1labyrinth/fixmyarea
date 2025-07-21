@@ -13,7 +13,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors({
   origin: 'https://timely-babka-c7d84e.netlify.app', // your frontend Netlify URL
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'DELETE'],
   credentials: true
 }));
 app.use(express.json({ limit:'10mb' }));
