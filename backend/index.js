@@ -10,10 +10,23 @@ mongoose
 const express = require("express");
 const cors = require("cors");
 
+const allowedOrigins = [
+  "http://localhost:3000", 
+  "https://timely-babka-c7d84e.netlify.app"
+]
+
 const app = express();
 app.use(cors({
-  origin: 'https://timely-babka-c7d84e.netlify.app', // your frontend Netlify URL
-  methods: ['GET', 'POST', 'DELETE'],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 app.use(express.json({ limit:'10mb' }));
