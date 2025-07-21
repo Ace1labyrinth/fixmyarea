@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const API_URL = "https://fixmyarea-backend.onrender.com";
+const API_URL = "https://fixmyarea-backend.onrender.com/api/issues";
 
 
 
 //add new issue
 
 export const createIssue = async (issueData) => {
-    const res = await axios.post(`{API_URL}/api/issues`, issueData);
+    const res = await axios.post(`${API_URL}/api/issues`, issueData);
   return res.data;
 
 };
@@ -15,14 +15,14 @@ export const createIssue = async (issueData) => {
 //fetch all issues
 
 export const getAllIssues = async () => {
-  const res = await axios.get(API_URL);
+  const res = await axios.get(`${API_URL}/api/issues`);
   return res.data;
 };
 
 
 export const deleteSingleIssue = async (id) => {
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/api/issues/${id}`, {
       method: 'DELETE',
     });
 
@@ -39,7 +39,7 @@ export const deleteSingleIssue = async (id) => {
 };
 
 export const updateIssue = async (id, updatedData) => {
-  const response = await axios.put(`${API_URL}/${id}`, updatedData);
+  const response = await axios.put(`${API_URL}/api/issues/${id}`, updatedData);
   return response.data;
 };
 
